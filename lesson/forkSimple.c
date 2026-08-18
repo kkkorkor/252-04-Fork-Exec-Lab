@@ -9,7 +9,7 @@ int main()
     int n;
 
     printf(“fork program starting\n”);
-    pid = fork();
+    pid = fork(); //child more than 1 use loop to fork
     switch(pid)
     {
     case -1: _exit(1);
