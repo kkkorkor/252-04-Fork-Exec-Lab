@@ -4,7 +4,9 @@
 
 int main()
 {
-    pid_t pid; char *msg; int n;
+    pid_t pid;
+    char *msg;
+    int n;
 
     printf(“fork program starting\n”);
     pid = fork();
@@ -14,7 +16,7 @@ int main()
     case 0: msg = “Child!\n”; 
             n = 45; 
             break;
-    default:msg = “Parent!\n”;
+    default: msg = “Parent!\n”;
             n = 3; 
             break;
     }
