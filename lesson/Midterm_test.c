@@ -3,7 +3,7 @@
 #include <sys/types.h>
 #include <sys/wait.h> //if use wait, need this library
 
-int main(){
+/*int main(){
     pid_t pid[3];
     char *msg;
 
@@ -29,8 +29,21 @@ int main(){
                         break;
             }        
     }
-
-
-
     _exit(0);
+}*/
+
+int main (){
+        printf("Fork & Exec\n");
+
+        pid_t pid;
+
+        pid = fork();
+        printf("Process ID: %d\n", (int)pid);
+        if(pid == 0 ){
+                execl("./printfile", "Child", NULL);
+        }else if(pid > 0){
+                execl("./printfile", "Parent", NULL);
+        }else perror ("fork");
+        
+        return 0;
 }
