@@ -12,20 +12,20 @@ int main(){
 
     switch(pid){
         case -1 : _exit(1);
-        case 0 : msg = "Child!\n"; n = 10; break;
-        default : msg = "Parent!\n"; n = 5; break;
+        case 0 : msg = "Child!\n"; n = 5; break;
+        default : msg = "Parent!\n"; n = 10; break;
     }
     for(; n > 0; n--){
         printf("%s: %d\n", msg, n);
         sleep(1);
     }
     if(pid){
-        int statVal;
+        int statVal; //status value
         pid_t childPID;
         childPID = wait(&statVal);
         printf("Child has finished : PID = %d\n", childPID);
         if(WIFEXITED(statVal)){
-            printf("Child excited with code %d\n", WIFEXITED(statVal));
+            printf("Child excited with code %d\n", WEXITSTATUS(statVal));
         }else{
             printf("Child terminated abnormally\n");
         }

@@ -21,7 +21,7 @@ int main()
             break;
     }
 
-    for (; n>0; n--){ 
+    for (; n>0; n--){ //we can write like this,cuz we already init n value
         puts(msg); sleep(1); 
     }
     _exit(0);
